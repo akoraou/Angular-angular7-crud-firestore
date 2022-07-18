@@ -130,6 +130,41 @@
           }
         }
       }
+    },
+    "bookstore": {
+      "root": "projects/bookstore",
+      "sourceRoot": "projects/bookstore/src",
+      "projectType": "library",
+      "prefix": "tm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/bookstore/tsconfig.lib.json",
+            "project": "projects/bookstore/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/bookstore/src/test.ts",
+            "tsConfig": "projects/bookstore/tsconfig.spec.json",
+            "karmaConfig": "projects/bookstore/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/bookstore/tsconfig.lib.json",
+              "projects/bookstore/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular7-crud-firestore"
